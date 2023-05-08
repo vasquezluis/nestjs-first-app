@@ -9,3 +9,12 @@
 
 ### distribucion en nest
  -> nest tiene 'modulos' para agrupar distintas rutas
+
+### comando para crear modulos
+ -> nest generate module <tasks>
+
+### comando para crear controladores (--no-spec es para no crear archivo de testing)
+ -> nest generate controller tasks --no-spec
+
+### comando para crear servicios (como conexion a BdD)
+  -> nest g/generate service tasks
