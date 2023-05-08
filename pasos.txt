@@ -18,3 +18,5 @@
 
 ### comando para crear servicios (como conexion a BdD)
   -> nest g/generate service tasks
+
+### las entidades sirven para detallar como luce un dato
