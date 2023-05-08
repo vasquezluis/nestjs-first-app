@@ -1,0 +1,11 @@
+### instalar nestjs en general
+ -> npm i @nestjs/cli
+
+### crear aplicacion de nest
+ -> nest new <nombre-del-proyecto>
+
+### ejecutar codigo inicial -> port 3000
+ -> npm run start:dev
+
+### distribucion en nest
+ -> nest tiene 'modulos' para agrupar distintas rutas
