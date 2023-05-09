@@ -20,3 +20,6 @@
   -> nest g/generate service tasks
 
 ### las entidades sirven para detallar como luce un dato
+
+### las validaciones se pueden hacer con class validator (modulo ya integrado en Nestjs)a (buscar docs)
+ -> npm i --save class-validator class-transformer
