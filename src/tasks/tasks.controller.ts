@@ -1,6 +1,14 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Body,
+  Param,
+  Patch,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import { CreateTaskDto } from './dto/task.dto';
+import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
 
 @Controller('tasks') // -> decorador
 // * estas son las rutas
@@ -20,5 +28,15 @@ export class TasksController {
     // * usar el servicio para agregar una tarea, recibe 2 parametros
     // * retornar la respuesta de createTasks
     return this.tasksService.createTasks(newTask.title, newTask.description);
+  }
+
+  @Delete(':id')
+  deleteTask(@Param('id') id: string) {
+    return this.tasksService.deleteTasks(id);
+  }
+
+  @Patch(':id')
+  updateTask(@Param('id') id: string, @Body() updatedFields: UpdateTaskDto) {
+    return this.tasksService.updateTasks(id, updatedFields);
   }
 }

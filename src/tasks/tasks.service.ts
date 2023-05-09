@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Task, TaskStatus } from './task.entity';
 import { v4 as uuid } from 'uuid';
+import { UpdateTaskDto } from './dto/task.dto';
 
 @Injectable() // -> decorador, injectable porque se puede inyectar en otras partes de la aplicacion
 export class TasksService {
@@ -35,6 +36,21 @@ export class TasksService {
     return task;
   }
 
-  // updateTasks() {}
-  // deleteTasks() {}
+  deleteTasks(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  getTaskById(id: string): Task {
+    return this.tasks.find((task) => task.id === id);
+  }
+
+  updateTasks(id: string, updatedFields: UpdateTaskDto): Task {
+    const taskFound = this.getTaskById(id);
+
+    const newTask = Object.assign(taskFound, updatedFields);
+
+    this.tasks = this.tasks.map((task) => (task.id === id ? newTask : task));
+
+    return newTask;
+  }
 }
